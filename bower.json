@@ -1,0 +1,21 @@
+{
+  "name": "bootstrap4",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Denis Toledo <contato@denistoledo.com.br>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/dnstld/boostratp4",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6"
+  }
+}

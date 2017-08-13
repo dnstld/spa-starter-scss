@@ -1,12 +1,15 @@
 var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     sass = require('gulp-sass'),
-    sass = require('gulp-sourcemaps'),
+    sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
     cleanCSS = require('gulp-clean-css'),
     rename = require("gulp-rename"),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
+    deleteLines = require('gulp-delete-lines'),
+    insertLines = require('gulp-insert-lines'),
+    plumber = require('gulp-plumber'),
 
     // js files
     scripts  = {
@@ -30,6 +33,7 @@ gulp.task('serve', ['sass'], function() {
 gulp.task('sass', function() {
   return gulp.src("develop/scss/*.scss")
     .pipe(sourcemaps.init())
+    .pipe(plumber())
     .pipe(sass())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest("develop/css"))
@@ -68,8 +72,32 @@ gulp.task('js', function() {
     .pipe(gulp.dest('dist/js'));
 });
 
+// HTML
+gulp.task('html', function() {
+  return gulp.src('*.html')
+    .pipe(deleteLines({
+      'filters': [
+        /<link\s+rel=/i
+      ]
+    }))
+    .pipe(insertLines({
+      'before': /<\/head>$/,
+      'lineBefore': '    <link rel="stylesheet" type="text/css" href="css/main.min.css">',
+    }))
+    .pipe(deleteLines({
+      'filters': [
+        /<script\s+src=/i
+      ]
+    }))
+    .pipe(insertLines({
+      'before': /<\/body>$/,
+      'lineBefore': '    <script src="js/main.min.js"></script>'
+    }))
+    .pipe(gulp.dest('dist'))
+});
+
 // default task
 gulp.task('default', ['serve']);
 
-// dist task
-gulp.task('dist', ['css', 'js']);
+// build task
+gulp.task('build', ['css', 'js', 'html']);
