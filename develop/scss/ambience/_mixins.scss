@@ -47,7 +47,7 @@
   transform: translate(-50%, -50%);
 }
 
-@include centered {
+@mixin centered {
   display: flex;
   align-items: center;
   justify-content: center;
