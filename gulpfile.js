@@ -16,7 +16,6 @@ var gulp = require('gulp'),
       jquery: 'vendor/jquery/dist/jquery.slim.min.js',
       tether: 'vendor/tether/dist/js/tether.min.js',
       bootstrap: 'vendor/bootstrap/dist/js/bootstrap.min.js',
-      vegas: 'vendor/vegas/dist/vegas.min.js',
       main: 'develop/js/main.js'
     };
 
@@ -61,7 +60,6 @@ gulp.task('js', function() {
     scripts.jquery,
     scripts.tether,
     scripts.bootstrap,
-    scripts.vegas,
     scripts.main
   ])
     .pipe(concat('main.js'))

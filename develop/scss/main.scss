@@ -1,6 +1,5 @@
 // vendor
 @import "./../../vendor/bootstrap/scss/bootstrap";
-@import "./../../vendor/vegas/dist/vegas";
 
 // ambience
 @import "develop/scss/ambience/variables";
@@ -8,3 +7,14 @@
 @import "develop/scss/ambience/typography";
 @import "develop/scss/ambience/icons";
 @import "develop/scss/ambience/mixins";
+
+// base
+@import "develop/scss/base/structure";
+
+// components
+@import "develop/scss/components/steps-container";
+
+.logo-attitude {
+  @include icon($icon-logo, 2);
+  color: #fff;
+}

@@ -18,7 +18,5 @@
   "dependencies": {
     "bootstrap": "v4.0.0-alpha.6"
   },
-  "devDependencies": {
-    "vegas": "^2.4.0"
-  }
+  "devDependencies": {}
 }

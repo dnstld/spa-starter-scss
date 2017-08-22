@@ -1,0 +1,43 @@
+.steps-container {
+  > div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+    padding: 1rem;
+
+    @include media-breakpoint-up(sm) {
+      width: 33.3333%;
+    }
+    @include media-breakpoint-up(lg) {
+      width: 16.6666%;
+    }
+
+    > span {
+      margin-bottom: 1rem;
+
+      &.calendar {
+        @include icon($icon-calendar, 4);
+      }
+      &.family {
+        @include icon($icon-family, 4);
+      }
+      &.scale {
+        @include icon($icon-scale, 4);
+      }
+      &.glove {
+        @include icon($icon-glove, 4);
+      }
+      &.food {
+        @include icon($icon-food, 4);
+      }
+      &.goal {
+        @include icon($icon-goal, 4);
+      }
+    }
+    > p {
+      line-height: 120%;
+    }
+  }
+}
