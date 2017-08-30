@@ -1,0 +1,24 @@
+.modal-agenda {
+  > .modal-body {
+    > table th {
+      text-align: center;
+    }
+    > .nav-legend {
+      margin-bottom: 1rem;
+    }
+    .icon {
+      &.muay-thai {
+        @include icon($icon-muay-thai, 1.3);
+        color: $purple;
+      }
+      &.krav-maga {
+        @include icon($icon-krav-maga, 1.3);
+        color: $green;
+      }
+      &.logo-attitude {
+        @include icon($icon-logo, 1.3);
+        color: $black;
+      }
+    }
+  }
+}

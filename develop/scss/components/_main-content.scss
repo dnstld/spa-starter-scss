@@ -1,0 +1,6 @@
+div.main-content {
+  @include box-sizing;
+  display: flex;
+  flex: 1;
+  padding: 1rem;
+}

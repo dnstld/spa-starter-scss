@@ -1,0 +1,13 @@
+.alignX {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.alignY {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

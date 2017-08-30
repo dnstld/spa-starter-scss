@@ -1,0 +1,51 @@
+nav.main-navigation {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $top-height;
+  background-color: white;
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  will-change: auto;
+  transform: translateY(-$top-height);
+  transition: .2s;
+
+  @include for-tablet-portrait-up {
+    right: 0;
+    transform: translateY(0);
+    background-color: black;
+    color: white;
+  }
+
+  &.active {
+    transform: translateY(0);
+  }
+  > a {
+    @include icon($icon-logo, 2);
+    padding: .5rem 0 .5rem 1rem;
+  }
+  > ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    > li {
+      height: inherit;
+
+      a {
+        @include box-sizing;
+        @extend .centered;
+        font-size: $font-size-small;
+        padding: .5rem;
+        height: inherit;
+
+        @include for-tablet-portrait-up {
+          font-size: $font-size-default;
+        }
+      }
+    }
+  }
+}

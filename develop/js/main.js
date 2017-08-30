@@ -1,20 +1,23 @@
-var MyPage = {
+var Attitude = {
   instances: {},
   variables: {},
 
   init: function() {
-    "use strict";
+    'use strict';
 
-    MyPage.carousel();
+    Attitude.toggleMenu();
   },
-  carousel: function() {
-    "use strict";
+  toggleMenu: function() {
+    'use strict';
 
-    return false;
+    $('#btn-menu').click(function() {
+      $(this).toggleClass('opened');
+      $('#main-navigation').toggleClass('active');
+    });
   }
 }
-$(document).on("ready", function() {
-  "use strict";
+$(document).ready(function() {
+  'use strict';
 
-  MyPage.init();
+  Attitude.init();
 });

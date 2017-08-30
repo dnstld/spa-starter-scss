@@ -15,8 +15,9 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "bootstrap": "v4.0.0-alpha.6"
-  },
-  "devDependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "jquery": "^3.2.1",
+    "eric-mayer-reset-less-sass": "https://github.com/dnstld/eric-mayer-reset-less-sass.git"
+  }
 }

@@ -13,9 +13,7 @@ var gulp = require('gulp'),
 
     // js files
     scripts  = {
-      jquery: 'vendor/jquery/dist/jquery.slim.min.js',
-      tether: 'vendor/tether/dist/js/tether.min.js',
-      bootstrap: 'vendor/bootstrap/dist/js/bootstrap.min.js',
+      jquery: 'vendor/jquery/dist/jquery.min.js',
       main: 'develop/js/main.js'
     };
 
@@ -26,6 +24,7 @@ gulp.task('serve', ['sass'], function() {
   });
 
   gulp.watch("develop/scss/**/*.scss", ['sass']);
+  gulp.watch("develop/js/*.js").on('change', browserSync.reload);
   gulp.watch("*.html").on('change', browserSync.reload);
 });
 
@@ -58,8 +57,6 @@ gulp.task('css', function() {
 gulp.task('js', function() {
   return gulp.src([
     scripts.jquery,
-    scripts.tether,
-    scripts.bootstrap,
     scripts.main
   ])
     .pipe(concat('main.js'))
@@ -69,7 +66,7 @@ gulp.task('js', function() {
     .pipe(uglify().on('error', function() {
       console.log(err);
     }))
-    .pipe(gulp.dest('dist/js'));
+    .pipe(gulp.dest('dist/js'))
 });
 
 // HTML
@@ -96,8 +93,14 @@ gulp.task('html', function() {
     .pipe(gulp.dest('dist'))
 });
 
+// assets
+gulp.task('public', function() {
+  return gulp.src('public/**/*')
+    .pipe(gulp.dest('dist/public'))
+});
+
 // default task
 gulp.task('default', ['serve']);
 
 // build task
-gulp.task('build', ['css', 'js', 'html']);
+gulp.task('build', ['css', 'js', 'html', 'public']);
