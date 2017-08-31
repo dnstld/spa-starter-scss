@@ -50,7 +50,7 @@ gulp.task('css', function() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('dist/css'))
+    .pipe(gulp.dest('build/css'))
 });
 
 // Concat and minify JS
@@ -66,7 +66,7 @@ gulp.task('js', function() {
     .pipe(uglify().on('error', function() {
       console.log(err);
     }))
-    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest('build/js'))
 });
 
 // HTML
@@ -90,13 +90,13 @@ gulp.task('html', function() {
       'before': /<\/body>$/,
       'lineBefore': '    <script src="js/main.min.js"></script>'
     }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('build'))
 });
 
 // assets
 gulp.task('public', function() {
   return gulp.src('public/**/*')
-    .pipe(gulp.dest('dist/public'))
+    .pipe(gulp.dest('build/public'))
 });
 
 // default task
