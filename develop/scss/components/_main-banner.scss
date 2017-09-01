@@ -58,7 +58,9 @@ div.main-banner {
       > .slick-slide {
         @include box-sizing;
         margin: 1rem .5rem;
-        background-color: white;
+        padding: .5rem;
+        border: 1px solid #c8c8c8;
+        border-radius: .3rem;
 
         img {
           width: 100%;
