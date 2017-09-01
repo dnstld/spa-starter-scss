@@ -1,7 +1,6 @@
 aside.app-shortcuts {
   @extend .centered;
   height: $top-height;
-  border-bottom: 1px solid black;
   margin: 0 1rem;
 
   &.mobile {
@@ -14,14 +13,21 @@ aside.app-shortcuts {
 
     @include for-tablet-portrait-up {
       display: flex;
-      border-bottom: none;
       margin-left: auto;
+    }
+    @include for-tablet-landscape-up {
+      margin-left: 0;
     }
   }
   ul {
     display: flex;
 
     li {
+      &.divisor {
+        @include for-tablet-landscape-up {
+          border-left: 1px solid #333;
+        }
+      }
       a {
         @extend .centered;
         width: 2.5rem;
@@ -34,12 +40,14 @@ aside.app-shortcuts {
         &.facebook {
           @include icon($icon-facebook, 1.2);
         }
-        &.waze {
-          @include icon($icon-waze, 1.2);
-
+        &.waze,
+        &.map {
           @include for-tablet-portrait-up {
             display: none;
           }
+        }
+        &.waze {
+          @include icon($icon-waze, 1.2);
         }
         &.map {
           @include icon($icon-map, 1.2);

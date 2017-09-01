@@ -24,13 +24,41 @@ nav.main-navigation {
     transform: translateY(0);
   }
   > a {
-    @include icon($icon-logo, 2);
+    display: none;
+    align-items: center;
     padding: .5rem 0 .5rem 1rem;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select:none;
+
+    @include for-tablet-portrait-up {
+      display: flex;
+    }
+
+    > span {
+      letter-spacing: 1px;
+    }
+    > span:first-child {
+      @include icon($icon-logo, 2);
+    }
+    > span:last-child {
+      display: none;
+
+      @include for-tablet-landscape-up {
+        display: block;
+        margin-left: .5rem;
+      }
+    }
   }
   > ul {
     display: flex;
     align-items: center;
     height: 100%;
+    margin-left: .5rem;
+
+    @include for-tablet-landscape-up {
+      margin-left: auto;
+    }
 
     > li {
       height: inherit;
@@ -44,6 +72,8 @@ nav.main-navigation {
 
         @include for-tablet-portrait-up {
           font-size: $font-size-default;
+          padding-left: 1rem;
+          padding-right: 1rem;
         }
       }
     }

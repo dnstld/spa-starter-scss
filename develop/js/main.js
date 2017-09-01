@@ -6,6 +6,7 @@ var Attitude = {
     'use strict';
 
     Attitude.toggleMenu();
+    Attitude.banner();
   },
   toggleMenu: function() {
     'use strict';
@@ -13,6 +14,30 @@ var Attitude = {
     $('#btn-menu').click(function() {
       $(this).toggleClass('opened');
       $('#main-navigation').toggleClass('active');
+    });
+  },
+  banner: function() {
+    'use strict';
+
+    $('.main-banner').slick({
+      lazyLoad: 'ondemand',
+      slidesToShow: 1,
+      infinite: true,
+      autoplay: true,
+      mobileFirst: true,
+      centerMode: true,
+      centerPadding: '2rem',
+
+      responsive: [
+        {
+          breakpoint: 900,
+          settings: {
+            centerMode: false,
+            fade: true,
+            cssEase: 'linear'
+          }
+        }
+      ]
     });
   }
 }
