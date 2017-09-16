@@ -1,6 +1,5 @@
 // vendor
 @import "./../../vendor/eric-mayer-reset-less-sass/reset";
-@import "./../../vendor/slick-carousel/slick/slick.scss";
 
 // ambience
 @import "develop/scss/ambience/variables";
@@ -15,9 +14,13 @@
 @import "develop/scss/base/structure";
 @import "develop/scss/base/unclassed";
 
-// components
-@import "develop/scss/components/main-navigation";
-@import "develop/scss/components/main-header";
-@import "develop/scss/components/app-shortcuts";
-@import "develop/scss/components/main-content";
-@import "develop/scss/components/main-banner";
+// welcome page
+body {
+  @extend .centered;
+  flex-direction: column;
+
+  > span {
+    @include icon($icon-denis-toledo, 7);
+    margin-bottom: 1rem;
+  }
+}

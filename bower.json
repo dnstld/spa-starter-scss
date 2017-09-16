@@ -1,5 +1,5 @@
 {
-  "name": "bootstrap4",
+  "name": "spaStarter",
   "description": "",
   "main": "index.js",
   "authors": [
@@ -15,10 +15,7 @@
     "test",
     "tests"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "jquery": "^3.2.1",
-    "eric-mayer-reset-less-sass": "https://github.com/dnstld/eric-mayer-reset-less-sass.git",
-    "slick-carousel": "https://github.com/kenwheeler/slick.git#^1.7.1"
+    "eric-mayer-reset-less-sass": "https://github.com/dnstld/eric-mayer-reset-less-sass.git"
   }
 }

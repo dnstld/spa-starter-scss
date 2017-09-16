@@ -1,6 +1,6 @@
-# Bootstrap 4 Boilerplate
+# SPA Starter
 
-Initial structure to develop one page website
+Single page application initial structure
 
 ## What I using?
 
@@ -34,7 +34,7 @@ bower install
 
 ## Command line
 
-Starting local server:
+Starting local server with live reload:
 
 ```
 gulp
@@ -46,4 +46,4 @@ Build for production:
 gulp build
 ```
 
-This command will create a directory called <i>production</i> in the root of the project with the files and folders inside.
+This command will create a directory called <i>builder</i> in the root of the project with the files and assets inside.
