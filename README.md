@@ -1,6 +1,6 @@
-# SPA Starter
+# SPA Starter SCSS
 
-Single page application initial structure
+Single page application initial structure with SASS 
 
 ## What I using?
 
