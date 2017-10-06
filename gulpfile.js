@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 
     // js files
     scripts  = {
-      main: 'develop/js/main.js'
+      main: 'assets/js/main.js'
     };
 
 // Static Server + watching scss/html files
@@ -22,25 +22,25 @@ gulp.task('serve', ['sass'], function() {
       server: "./"
   });
 
-  gulp.watch("develop/scss/**/*.scss", ['sass']);
-  gulp.watch("develop/js/*.js").on('change', browserSync.reload);
+  gulp.watch("assets/scss/**/*.scss", ['sass']);
+  gulp.watch("assets/js/*.js").on('change', browserSync.reload);
   gulp.watch("*.html").on('change', browserSync.reload);
 });
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
-  return gulp.src("develop/scss/*.scss")
+  return gulp.src("assets/scss/main.scss")
     .pipe(sourcemaps.init())
     .pipe(plumber())
     .pipe(sass())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest("develop/css"))
+    .pipe(gulp.dest("assets/css"))
     .pipe(browserSync.stream());
 });
 
 // Autoprefixer and minify CSS
 gulp.task('css', function() {
-  return gulp.src("develop/css/main.css")
+  return gulp.src("assets/css/main.css")
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
@@ -49,7 +49,7 @@ gulp.task('css', function() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('build/css'))
+    .pipe(gulp.dest('build/assets/css'))
 });
 
 // Concat and minify JS
@@ -61,10 +61,10 @@ gulp.task('js', function() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(uglify().on('error', function() {
+    .pipe(uglify().on('error', function(err) {
       console.log(err);
     }))
-    .pipe(gulp.dest('build/js'))
+    .pipe(gulp.dest('build/assets/js'))
 });
 
 // HTML
@@ -77,7 +77,7 @@ gulp.task('html', function() {
     }))
     .pipe(insertLines({
       'before': /<\/head>$/,
-      'lineBefore': '    <link rel="stylesheet" type="text/css" href="css/main.min.css">',
+      'lineBefore': '    <link rel="stylesheet" type="text/css" href="assets/css/main.min.css">',
     }))
     .pipe(deleteLines({
       'filters': [
@@ -86,19 +86,37 @@ gulp.task('html', function() {
     }))
     .pipe(insertLines({
       'before': /<\/body>$/,
-      'lineBefore': '    <script src="js/main.min.js"></script>'
+      'lineBefore': '    <script src="assets/js/main.min.js"></script>'
     }))
     .pipe(gulp.dest('build'))
 });
 
-// assets
-gulp.task('public', function() {
-  return gulp.src('public/**/*')
-    .pipe(gulp.dest('build/public'))
+// icon
+gulp.task('icon', function() {
+  return gulp.src('assets/icon/**/*.*')
+    .pipe(gulp.dest('build/assets/icon'))
+});
+
+// svg
+gulp.task('svg', function() {
+  return gulp.src('assets/svg/**/*.*')
+    .pipe(gulp.dest('build/assets/svg'))
+});
+
+// images
+gulp.task('images', function() {
+  return gulp.src('assets/images/**/*.*')
+    .pipe(gulp.dest('build/assets/images'))
+});
+
+// favicon
+gulp.task('favicon', function() {
+  return gulp.src('favicon.ico')
+    .pipe(gulp.dest('build/'))
 });
 
 // default task
 gulp.task('default', ['serve']);
 
 // build task
-gulp.task('build', ['css', 'js', 'html', 'public']);
+gulp.task('build', ['html', 'css', 'js', 'icon', 'svg', 'images', 'favicon']);

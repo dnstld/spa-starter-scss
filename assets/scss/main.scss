@@ -1,0 +1,26 @@
+// vendor
+@import "./../../vendor/eric-mayer-reset-less-sass/reset";
+
+// ambience
+@import "ambience/variables";
+@import "ambience/colors";
+@import "ambience/typography";
+@import "ambience/icons";
+@import "ambience/mixins";
+@import "ambience/extends";
+@import "ambience/animations";
+
+// base
+@import "base/structure";
+@import "base/unclassed";
+
+// welcome page
+body {
+  @extend .centered;
+  flex-direction: column;
+
+  > span {
+    @include icon($icon-denis-toledo, 7);
+    margin-bottom: 1rem;
+  }
+}
