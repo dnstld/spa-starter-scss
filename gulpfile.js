@@ -52,6 +52,27 @@ gulp.task('css', function() {
     .pipe(gulp.dest('build/assets/css'))
 });
 
+// above the fold - scss to css
+gulp.task('atf', function() {
+  return gulp.src("assets/scss/atf.scss")
+    .pipe(sass())
+    .pipe(gulp.dest("assets/css"))
+});
+
+// above the fold - dist
+gulp.task('atf-generate', function() {
+  return gulp.src("assets/css/atf.css")
+  .pipe(autoprefixer({
+    browsers: ['last 2 versions'],
+    cascade: false
+  }))
+  .pipe(cleanCSS())
+  .pipe(rename({
+    suffix: '.min'
+  }))
+  .pipe(gulp.dest('build/assets/css'))
+});
+
 // Concat and minify JS
 gulp.task('js', function() {
   return gulp.src([
@@ -119,4 +140,4 @@ gulp.task('favicon', function() {
 gulp.task('default', ['serve']);
 
 // build task
-gulp.task('build', ['html', 'css', 'js', 'icon', 'svg', 'images', 'favicon']);
+gulp.task('build', ['html', 'css', 'js', 'icon', 'svg', 'images', 'favicon', 'atf', 'atf-generate']);

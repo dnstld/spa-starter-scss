@@ -1,33 +1,30 @@
 .alignX {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-}
+  transform: translateX(-50%); }
+
 .alignY {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-}
+  transform: translateY(-50%); }
+
 .alignXY {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-}
+  transform: translate(-50%, -50%); }
+
 .centered {
   display: flex;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: center; }
+
 .truncate {
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-}
-.clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
+  text-overflow: ellipsis; }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }

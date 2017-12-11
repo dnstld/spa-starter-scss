@@ -1,13 +1,12 @@
 // vendor
 @import "./../../vendor/eric-mayer-reset-less-sass/reset";
 
+// inline critical CSS (above the fold)
+@import "atf";
+
 // ambience
-@import "ambience/variables";
-@import "ambience/colors";
-@import "ambience/typography";
 @import "ambience/icons";
 @import "ambience/mixins";
-@import "ambience/extends";
 @import "ambience/animations";
 
 // base
